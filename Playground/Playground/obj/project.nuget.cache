@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "7giuG00NKmgaCv9h1mW/4haEnvckTR6rDHgie0g9LBiVzyGBxyZ8zdRTn6U6WaOLt/2SG/WXXd4XcGLimTcbNQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\jakub\\repos\\Domain-modeling-made-functional\\Playground\\Playground\\Playground.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jakub\\.nuget\\packages\\fsharp.core\\4.7.0\\fsharp.core.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
