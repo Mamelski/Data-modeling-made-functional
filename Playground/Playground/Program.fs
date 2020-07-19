@@ -31,12 +31,14 @@ type CherryVariety =
  | Montmorency
  | Bing
  
+ // Record type (product)
 type FruitSalad = {
      Apple: AppleVariety
      Banana: BanaVariety
      Cherries: CherryVariety
  }
  
+ // Discriminated union (sum)
 type FruitSnack =
     | Apple of AppleVariety
     | Banana of BanaVariety
@@ -45,6 +47,12 @@ type FruitSnack =
 // Same as type ProductCode = ProductCode of string
 type ProductCode =
     | ProductCode of string
+    
+type Person = {First:string; Last:string}
+let aPerson = {First = "Jakub"; Last= "Mamelski"}
+
+// dekonstrukcja
+let {First=first; Last=last} = aPerson
 
 [<EntryPoint>]
 let main argv =
@@ -57,4 +65,5 @@ let main argv =
     
     let res = squarePlusOne 10
     printfn "%d" res
+    printfn "%s %s" first last
     0 // return an integer exit code
