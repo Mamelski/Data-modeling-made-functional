@@ -51,8 +51,25 @@ type ProductCode =
 type Person = {First:string; Last:string}
 let aPerson = {First = "Jakub"; Last= "Mamelski"}
 
-// dekonstrukcja
+// dekonstrukcja rekordu
 let {First=first; Last=last} = aPerson
+let first2 = aPerson.First
+let last2 = aPerson.Last
+
+// Dekonstrukcja unii (choice type)
+type OrderQuantity =
+    | UnitQuantity of int
+    | KilogramQuantity of decimal
+
+let anOrderQtyInUnits = UnitQuantity 10
+let anOrderQtyInKg = KilogramQuantity 2.5m
+
+let printQuantity aOrderQty =
+    match aOrderQty with
+    | UnitQuantity uQty ->
+        printfn "%i units" uQty
+    | KilogramQuantity kgQty ->
+        printfn "%g kg" kgQty
 
 [<EntryPoint>]
 let main argv =
@@ -66,4 +83,8 @@ let main argv =
     let res = squarePlusOne 10
     printfn "%d" res
     printfn "%s %s" first last
+    
+    printQuantity anOrderQtyInKg
+    printQuantity anOrderQtyInUnits
+    
     0 // return an integer exit code
