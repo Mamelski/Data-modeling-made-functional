@@ -97,6 +97,23 @@ type Payment = {
     Method: PaymentMethod
 }
 
+//Funkcja konwertująca waluty
+type ConvertPaymentCurrency =
+    Payment -> Currency -> Payment
+
+// Optional values
+// Takie generyczne nullable w sumie
+type Option<'a> =
+    | Some of 'a
+    | None
+
+// Drugie imię jest albo i nie 
+type PersonalName = {
+    FirstName: string
+    SecondName: Option<string>
+    LastName: string
+}    
+
 [<EntryPoint>]
 let main argv =
     printfn "Hello World from F#!"
