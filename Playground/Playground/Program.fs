@@ -4,6 +4,7 @@ open System
 open System.ComponentModel.DataAnnotations
 open System.ComponentModel.DataAnnotations
 open System.Reflection.Metadata.Ecma335
+open System.Runtime.CompilerServices
 open Microsoft.VisualBasic
 
 // Functions
@@ -70,6 +71,31 @@ let printQuantity aOrderQty =
         printfn "%i units" uQty
     | KilogramQuantity kgQty ->
         printfn "%g kg" kgQty
+  
+// Kompozycja
+type CheckNumber = CheckNumber of int
+type CardNumber = CardNumber of string 
+type CardType =
+     Visa | Mastercard
+     
+type CreaditCardInfo = {
+     CardType: CardType
+     CardNumber: CardNumber
+}
+ 
+type PaymentMethod =
+     | Cash
+     | Check of CheckNumber
+     | Card of CreaditCardInfo
+     
+type PaymentAmount = PaymentAmount of decimal
+type Currency = USD | EUR
+
+type Payment = {
+    Amount: PaymentAmount
+    Currency: Currency
+    Method: PaymentMethod
+}
 
 [<EntryPoint>]
 let main argv =
