@@ -1,6 +1,7 @@
 ﻿// Learn more about F# at http://fsharp.org
 
 open System
+open System.Collections.Specialized
 open System.ComponentModel.DataAnnotations
 open System.ComponentModel.DataAnnotations
 open System.Reflection.Metadata.Ecma335
@@ -119,6 +120,34 @@ type SaveText = string -> unit
 
 type NextRandom = unit -> int
 
+type Order = {
+    OrderId: string
+    Lines: string list
+}
+
+let aList = [1;2;3]
+
+let aNewList = 0 :: aList
+
+let printList1 aList =
+    match aList with
+    | [] ->
+        printfn "Lista jest pusta"
+    | [x] ->
+        printfn "Lista ma jeden element %A" x
+    | [x;y] ->
+        printfn "Lista ma dwa elementy %A %A" x y
+    | lonerList ->
+        printfn "Lista ma więcej niż dwa elementy"
+        
+let printList2 =
+    match aList with
+    | []->
+        printfn "Lista jest pusta"
+    | first::rest ->
+        printfn "Lista jest niepusta, pierwszy element to %A" first
+
+        
 [<EntryPoint>]
 let main argv =
     printfn "Hello World from F#!"
@@ -134,5 +163,8 @@ let main argv =
     
     printQuantity anOrderQtyInKg
     printQuantity anOrderQtyInUnits
+    
+    printfn "%A" aList
+    printfn "%A" aNewList
     
     0 // return an integer exit code
