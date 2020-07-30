@@ -112,7 +112,12 @@ type PersonalName = {
     FirstName: string
     SecondName: Option<string>
     LastName: string
-}    
+}
+
+// Void and function without params
+type SaveText = string -> unit
+
+type NextRandom = unit -> int
 
 [<EntryPoint>]
 let main argv =
