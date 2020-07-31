@@ -24,6 +24,13 @@ type BillingAddress = Undefined
 type OrderLine = Undefined
 type BillingAmount = Undefined
 type GizmoCode = Undefined
+type UnvalidatedOrder = Undefined
+type ValidatedOrder = Undefined
+type ValidationError = {
+    FieldName: string
+    ErrorDescription: string
+}
+
 
 type Order = {
     CustomerInfo: CustomerInfo
@@ -51,6 +58,15 @@ type CategorizeInboudEmail = EnvelopeContents -> CategorizedEmail
 
 // Funkcja z wieloma wejsciami (albo osobny typ na parametry)
 type CalculatePrices = Order -> ProductCode -> int
+
+// ValidationErrors are side effects
+//type ValidateOrder =
+//    UnvalidatedOrder -> Async<Result<ValidatedOrder, ValidationError list>>   
+type ValidationResponse<'a> = Async<Result<'a, ValidationError>>
+type ValidateOrder =
+    UnvalidatedOrder -> ValidationResponse<ValidatedOrder>
+
+type 
  
 [<EntryPoint>]
 let main argv =
