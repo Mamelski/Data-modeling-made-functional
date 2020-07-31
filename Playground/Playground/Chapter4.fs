@@ -1,4 +1,6 @@
-﻿// Learn more about F# at http://fsharp.org
+﻿module Playground.Chapter4
+
+// Learn more about F# at http://fsharp.org
 
 open System
 open System.Collections.Specialized
@@ -148,7 +150,7 @@ let printList2 =
         printfn "Lista jest niepusta, pierwszy element to %A" first
 
         
-[<EntryPoint>]
+//[<EntryPoint>]
 let main argv =
     printfn "Hello World from F#!"
     

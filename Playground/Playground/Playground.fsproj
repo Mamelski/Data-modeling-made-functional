@@ -6,7 +6,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Program.fs"/>
+        <Compile Include="Chapter4.fs" />
+        <Compile Include="Chapter5.fs" />
     </ItemGroup>
 
 </Project>
