@@ -1,5 +1,6 @@
 ﻿module Playground.Chapter5
 
+open System
 open System.Net.NetworkInformation
 
 type CustomerId = CustomerId of int
@@ -66,11 +67,42 @@ type ValidationResponse<'a> = Async<Result<'a, ValidationError>>
 type ValidateOrder =
     UnvalidatedOrder -> ValidationResponse<ValidatedOrder>
 
-type 
+// Entities with Id
+type InvoiceId = InvoiceId of int
+type UnpaidInvoice = {
+    InvoiceId: InvoiceId
+    // some fields
+}
+type PaidInvoice = {
+    InvoiceId: InvoiceId
+    // some fields
+}
+
+type Invoice = 
+    | Unpaid of UnpaidInvoice
+    | Paid of PaidInvoice
+
+let invoice = Paid {InvoiceId = InvoiceId(10) }
+
+match invoice with
+    | Unpaid unpaidInvoice ->
+        printfn "The unpaid invoiceId is %A" unpaidInvoice.InvoiceId
+    | Paid paidInvoice ->
+        printfn "The paid invoiceId is %A" paidInvoice.InvoiceId
+        
+let invoice2 = {InvoiceId=InvoiceId(10)}
+printfn "%A" invoice2.InvoiceId
+
+// No equality testing with this type
+[<NoEquality; NoComparison>]
+type Contact = {
+    ContactId: Guid
+    PhoneNuber: string
+}
  
 [<EntryPoint>]
 let main argv =
 
     processCustomerId customerId
-    
+
     0 // return an integer exit code
