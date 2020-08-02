@@ -99,6 +99,16 @@ type Contact = {
     ContactId: Guid
     PhoneNuber: string
 }
+type PersonId = PersonId of int
+
+type Person = {
+    PersonId : PersonId
+    Name : string
+}
+
+let initialPerson = {PersonId = PersonId 12; Name = "Mamelski"}
+
+let updatedPerson = {initialPerson with Name="Mamelski 2"}
  
 [<EntryPoint>]
 let main argv =
