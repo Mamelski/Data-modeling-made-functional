@@ -15,6 +15,8 @@
 //
 //===================================
 
+open Ch06_DomainIntegrity.SimpleValues2
+
 #load "Common.fsx"
 open Common
 
@@ -62,6 +64,7 @@ module SimpleValues2 =
                 Ok (UnitQuantity qty)
     //<
 
+ 
     //>SimpleValues2c
         /// Return the wrapped value
         let value (UnitQuantity qty) = qty
@@ -80,6 +83,7 @@ module SimpleValues2 =
 module SimpleTypesExample1 =
     open SimpleValues2
 
+    
     //>SimpleValuesExample1
     // let unitQty = UnitQuantity 1
     //            ^ The union cases of the type 'UnitQuantity' 

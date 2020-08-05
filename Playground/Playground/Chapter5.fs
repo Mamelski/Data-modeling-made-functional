@@ -110,7 +110,7 @@ let initialPerson = {PersonId = PersonId 12; Name = "Mamelski"}
 
 let updatedPerson = {initialPerson with Name="Mamelski 2"}
  
-[<EntryPoint>]
+// [<EntryPoint>]
 let main argv =
 
     processCustomerId customerId
