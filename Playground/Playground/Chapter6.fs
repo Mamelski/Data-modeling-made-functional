@@ -1,8 +1,4 @@
-﻿
-module Playground.Chapter6
-
-open Microsoft.VisualBasic
-open Playground.Chapter6.Module1
+﻿module Playground.Chapter6
 
 module Module1 =
     type UnitQuantity = private UnitQuantity of int
@@ -27,6 +23,33 @@ module Module2 =
         printfn "Failure. Error is %A" msg
     | Ok Qty ->
         printfn "Ok, value is %A" Qty
+        
+    [<Measure>]
+    type kg
+    
+    let fivekilos = 5.0<kg>
+    
+    type KilogramQuantity = KilogramQuantity of decimal<kg>
+    
+    type NonEmptyList<'a> = {
+        First: 'a
+        Rest: 'a list
+    }
+    
+    type Order = {
+        OrderLines: NonEmptyList<string>
+    }
+    
+    // Contact info, we want 3 choices
+    
+    type ContactInfo =
+        | EmailOnly of EmailContactInfo
+        | AddressOnly of AddressContactInfo
+        | EmailAndAddress of EmailAndAddressContactInfo
+    
+    type Contact = {
+        ContactInfo: ContactInfo
+    }   
     
     
 
