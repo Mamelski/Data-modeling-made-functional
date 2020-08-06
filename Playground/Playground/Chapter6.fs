@@ -42,17 +42,17 @@ module Module2 =
     
     // Contact info, we want 3 choices
     
-    type ContactInfo =
-        | EmailOnly of EmailContactInfo
-        | AddressOnly of AddressContactInfo
-        | EmailAndAddress of EmailAndAddressContactInfo
+//    type ContactInfo =
+//        | EmailOnly of EmailContactInfo
+//        | AddressOnly of AddressContactInfo
+//        | EmailAndAddress of EmailAndAddressContactInfo
     
-    type Contact = {
-        ContactInfo: ContactInfo
-    }   
+//    type Contact = {
+//        ContactInfo: ContactInfo
+//    }   
     
     
 
-[<EntryPoint>]
+//[<EntryPoint>]
 let main argv =
     0 // return an integer exit code
