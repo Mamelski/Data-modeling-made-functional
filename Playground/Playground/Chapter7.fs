@@ -43,6 +43,70 @@ type ValidateOrder =
       -> UnvalidatedOrder     // input
       -> Result<ValidatedOrder,ValidationError>  // output
     
+    
+type Price = Undefined
+type PricedOrder = Undefined
+type GetProductPrice = 
+        ProductCode -> Price
+
+
+type PriceOrder = 
+    GetProductPrice      // dependency
+      -> ValidatedOrder  // input
+      -> PricedOrder     // output
+
+type EmailAddress = EmailAddress of string
+
+type HtmlString = 
+    HtmlString of string
+
+type OrderAcknowledgment = {
+    EmailAddress : EmailAddress
+    Letter : HtmlString 
+    }
+
+type CreateOrderAcknowledgmentLetter =
+    PricedOrder -> HtmlString
+
+module SendOrderAcknowledgmentUnit =
+
+    type SendOrderAcknowledgment =
+        OrderAcknowledgment -> unit
+
+module SendOrderAcknowledgmentBool =
+    // bool jest zazwyczaj słaby i mało mówi
+    type SendOrderAcknowledgment =
+        OrderAcknowledgment -> bool
+            
+module SendOrderAcknowledgmentEnum =
+    type SendResult = Sent | NotSent
+
+    type SendOrderAcknowledgment =
+        OrderAcknowledgment -> SendResult 
+
+    module SendOrderAcknowledgmentOption =
+        type OrderAcknowledgmentSent = Undefined
+
+        type SendOrderAcknowledgment =
+            OrderAcknowledgment -> OrderAcknowledgmentSent option
+
+
+   
+type OrderId = Undefined
+type SendOrderAcknowledgment = SendOrderAcknowledgmentEnum.SendOrderAcknowledgment          
+
+type OrderAcknowledgmentSent = {
+    OrderId : OrderId
+    EmailAddress : EmailAddress 
+    }
+
+type AcknowledgeOrder = 
+    CreateOrderAcknowledgmentLetter     // dependency
+      -> SendOrderAcknowledgment        // dependency
+      -> PricedOrder                    // input
+      -> OrderAcknowledgmentSent option // output
+
+    
 [<EntryPoint>]
 let main argv =
     0 // return an integer exit code
