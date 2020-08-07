@@ -21,8 +21,8 @@ module Module2 =
     match unitQty with
     | Error msg ->
         printfn "Failure. Error is %A" msg
-    | Ok Qty ->
-        printfn "Ok, value is %A" Qty
+    | Ok qty ->
+        printfn "Ok, value is %A" qty
         
     [<Measure>]
     type kg

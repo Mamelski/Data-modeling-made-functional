@@ -95,6 +95,7 @@ module SendOrderAcknowledgmentEnum =
 type OrderId = Undefined
 type SendOrderAcknowledgment = SendOrderAcknowledgmentEnum.SendOrderAcknowledgment          
 
+// nasz event
 type OrderAcknowledgmentSent = {
     OrderId : OrderId
     EmailAddress : EmailAddress 
@@ -107,6 +108,6 @@ type AcknowledgeOrder =
       -> OrderAcknowledgmentSent option // output
 
     
-[<EntryPoint>]
+//[<EntryPoint>]
 let main argv =
     0 // return an integer exit code
