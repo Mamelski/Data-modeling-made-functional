@@ -13,6 +13,17 @@ let listOfFunctions =
     
 let evalWith6AndAdd1 fn =
     fn(6) + 1
+    
+//Partial application
+let sayGreeting greeting name =
+    printfn "%s %s" greeting name
+
+let saySiema =
+    sayGreeting "siema"
+    
+//Piping
+let add3ThenSquare x =
+    x |> add3 |> square
 
 [<EntryPoint>]
 let main argv =
@@ -23,5 +34,10 @@ let main argv =
         
     let res = evalWith6AndAdd1 square
     printfn "Result is %A" res
+    
+    saySiema "Jakub"
+    
+    let res2 = add3ThenSquare 2
+    printfn "Result is %A" res2
     
     0 // return an integer exit code
