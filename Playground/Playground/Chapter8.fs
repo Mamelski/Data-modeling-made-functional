@@ -11,6 +11,8 @@ let listOfFunctions =
      times2;
      square]
     
+let evalWith6AndAdd1 fn =
+    fn(6) + 1
 
 [<EntryPoint>]
 let main argv =
@@ -18,4 +20,8 @@ let main argv =
     for fn in listOfFunctions do
         let result = fn 5
         printfn "Result is %A" result
+        
+    let res = evalWith6AndAdd1 square
+    printfn "Result is %A" res
+    
     0 // return an integer exit code
