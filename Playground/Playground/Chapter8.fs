@@ -25,7 +25,7 @@ let saySiema =
 let add3ThenSquare x =
     x |> add3 |> square
 
-[<EntryPoint>]
+//[<EntryPoint>]
 let main argv =
     
     for fn in listOfFunctions do
