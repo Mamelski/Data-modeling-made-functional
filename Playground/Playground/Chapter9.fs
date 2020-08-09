@@ -20,7 +20,13 @@ module Domain =
         /// OrderId -> string
         let value (OrderId str) = // unwrap in the parameter!
           str                     // return the inner value
-              
+     
+// Adapter - f zwraca nam bool, ale jeśli true to chcemy zwrócić wartość    
+let predicateToPassthru errorMsg f x =
+    if f x then  
+        x
+    else  
+        failwith errorMsg 
               
 [<EntryPoint>]
 let main argv =
