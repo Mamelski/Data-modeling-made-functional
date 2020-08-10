@@ -13,6 +13,11 @@
         <Compile Include="Chapter8.fs" />
         <Compile Include="Chapter9.fs" />
         <Compile Include="Chapter10.fs" />
+        <Compile Include="Chapter11.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     </ItemGroup>
 
 </Project>

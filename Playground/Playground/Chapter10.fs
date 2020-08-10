@@ -1,6 +1,7 @@
 ﻿module Playground.Chapter10
 
 
+
 let bind switchFn =
     fun twoTrackInput ->
         match twoTrackInput with
@@ -18,7 +19,7 @@ let map f aResult =
     | Ok success -> Ok (f success)
     | Error failure -> Error failure
 
-[<EntryPoint>]
+//[<EntryPoint>]
 let main argv =
     
     0 // return an integer exit code
