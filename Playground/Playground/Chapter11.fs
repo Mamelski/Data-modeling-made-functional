@@ -12,7 +12,7 @@ let deserialize<'a> str =
     with
     | ex -> Result.Error ex
     
-[<EntryPoint>]
+//[<EntryPoint>]
 let main argv =
     
     0 // return an integer exit code
