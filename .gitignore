@@ -188,3 +188,6 @@ docs/content/release-notes.md
 .fake/build.*
 .vs/VSWorkspaceState.json
 .vs/slnx.sqlite
+
+.idea
+
